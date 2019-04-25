@@ -5,12 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Transaction")
 public class TransactionDetails {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-    
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
+    @SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
 	private int transactionId;
 	private int fromAcc;
 	private int toAcc;
@@ -38,6 +40,9 @@ public class TransactionDetails {
 	}
 	public void setAmt(int amt) {
 		this.amt = amt;
+	}
+	public TransactionDetails() {
+		
 	}
 	
 }

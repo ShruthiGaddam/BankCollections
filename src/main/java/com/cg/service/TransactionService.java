@@ -1,8 +1,5 @@
 package com.cg.service;
 
-import java.util.ArrayList;
-
-import com.cg.model.CustomerDetails;
 import com.cg.model.TransactionDetails;
 
 public interface TransactionService {

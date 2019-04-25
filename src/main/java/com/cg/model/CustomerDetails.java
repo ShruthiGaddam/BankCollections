@@ -5,12 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Customer")
 public class CustomerDetails {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-   
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
+    @SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
 	private int accountNo;
 	private String firstName;
 	private String lastName;
@@ -81,5 +83,7 @@ public class CustomerDetails {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
-
+	public CustomerDetails() {
+	}
+	
 }

@@ -7,15 +7,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.cg.model.CustomerDetails;
 import com.cg.model.TransactionDetails;
 import com.cg.service.BankService;
 import com.cg.service.TransactionService;
-import com.cg.utility.Database;
+
 @RestController
 public class HomeController {
-	Database d=new Database();
 	int accountNo;
 	@Autowired
 	BankService bank;
@@ -74,7 +72,7 @@ public class HomeController {
 		int amount = 0;
 		if(accountNo != 0) {
 			transaction = tService.fundTransfer(accountNo,transaction);
-			boolean isInserted = tService.insertTransaction(transaction);
+			tService.insertTransaction(transaction);
 		}
 		
 		return amount;
